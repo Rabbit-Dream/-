@@ -1,0 +1,21 @@
+<!--pages/ understand/ understand.wxml-->
+
+<!--pages/understand/understand.wxml-->
+<view id='nav'>
+    <navigator class='nav' hover-class='none' url='/pages/index/index'>
+        <text class='text'>恋练复习</text>
+    </navigator>
+</view>
+
+<view class='content'>
+    <view class='word'>{{english}}</view>
+    <view class='interpretation'>
+        <image style='width:32px; height:32px;' mode='aspectFit' src='../../images/dot.png' class='img'></image>
+        <text class='label'>释义</text>
+        <text class='chinese'>{{chinese}}</text>
+    </view>
+    <view class='button' bindtap='remind'>{{button1_name}}</view>
+    <view class='button' bindtap='next'>{{button2_name}}</view>
+</view>
+<view class='mark'>{{unitId}}:</view>
+<view class='ratio'>{{current}}/{{maxLength}}</view>

@@ -1,0 +1,23 @@
+<!--miniprogram/pages/write/write.wxml-->
+
+<view id='nav'>
+    <navigator class='nav' hover-class='none' url='/pages/review/review'>
+        <text class='text' bindtap='jump_index'>恋练复习</text>
+    </navigator>
+</view>
+
+<view class='content'>
+    <view class='top'>
+        <image style='width:32px; height:32px;' mode='aspectFit' src='../../images/heart.png' class='img'></image>
+        <text class='label'>日志</text>
+    </view>
+    
+    <view class='interpretation'>
+        <textarea class='diary' maxlength='' placeholder='点击这里输入日志' placeholder-style='font-size:16px' bindinput='getInput' value="{{text}}"></textarea>
+    </view>
+
+</view>
+
+<view class='circle' bindtap='save'>
+    <image style='width:50px; height:50px' mode='aspectFit' src='../../images/save.png'></image>
+</view>

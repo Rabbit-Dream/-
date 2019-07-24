@@ -1,0 +1,27 @@
+<!--pages/review/review.wxml-->
+
+<view id='nav'>
+    <navigator class='nav' hover-class='none' url='/pages/review/review'>
+        <text class='text' bindtap='jump_index'>恋练复习</text>
+    </navigator>
+</view>
+
+<view class='content'  bindtouchstart="touchStart"  bindtouchend="touchEnd">
+
+    <view class='word'>{{english}}</view>
+
+    <view class='interpretation'>
+        <image style='width:32px; height:32px;' mode='aspectFit' src='../../images/dot.png' class='img'></image>
+        <text class='label'>释义</text>
+        <text class='chinese'>{{chinese}}</text>
+    </view>
+
+</view>
+
+<view class='mark'>{{unitId}}:</view>
+
+<view class='ratio'>{{current}}/{{maxLength}}</view>
+
+<view class='circle' bindtap='add'>
+    <image style='width:60px; height:60px' mode='aspectFit' src='../../images/add.png'></image>
+</view>

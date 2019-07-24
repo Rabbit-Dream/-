@@ -1,0 +1,29 @@
+<!--pages/murder/murder.wxml-->
+<view id='nav'>
+    <navigator class='nav' hover-class='none' url='/pages/index/index'>
+        <text class='text'>恋练复习</text>
+    </navigator>
+</view>
+
+
+<view class='content'>
+
+    <input class='word' maxlength='20' placeholder='点击这里输入单词' placeholder-style='font-size:16px' bindinput='getInput' value="{{word_value}}"></input>
+
+    <view class='interpretation'>
+        <image style='width:32px; height:32px;' mode='aspectFit' src='../../images/dot.png' class='img'></image>
+        <text class='label'>释义</text>
+        <text class='chinese'>{{chinese}}</text>
+    </view>
+
+    <view class='word'>{{english}}</view>
+
+</view>
+
+<view class='mark'>{{unitId}}:</view>
+
+<view class='ratio'>{{current}}/{{maxLength}}</view>
+
+<view class='circle' bindtap='ok'>
+    <image style='width:64px; height:64px' mode='aspectFit' src='../../images/ok.png'></image>
+</view>

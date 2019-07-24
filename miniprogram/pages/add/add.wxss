@@ -1,0 +1,47 @@
+/* miniprogram/pages/add/add.wxss */
+
+.circle{
+    width: 50px;
+    height: 50px
+}
+
+.word{
+    margin: 0
+}
+
+.ca{
+    display: flex;
+    position: relative;
+    width: 75%;
+    height: 25px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.img{
+    position: absolute;
+    top: 2px;
+    left: 5px;
+}
+
+.label{
+    position: absolute;
+    top: 5px;
+    left: 35px;
+}
+
+
+.interpretation{
+    width: 65%;
+    margin: 10px;
+    text-align: left;
+}
+
+.ch{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    text-align: left;
+}

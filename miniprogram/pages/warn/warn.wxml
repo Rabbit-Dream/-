@@ -1,0 +1,12 @@
+<!--miniprogram/pages/warn/warn.wxml-->
+
+<view id='nav'>
+    <navigator class='nav' hover-class='none' url='/pages/review/review'>
+        <text class='text' bindtap='jump_index'>恋练复习</text>
+    </navigator>
+</view>
+
+<view class='check'>
+    <view type='defualt' class='warn'>识记已完成</view>
+    <view type='defualt' bindtap='jump_index' class='button'>返回首页</view>
+</view> 

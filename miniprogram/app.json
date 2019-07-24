@@ -1,0 +1,24 @@
+{
+    "pages": [
+        "pages/index/index",
+        "pages/logs/logs",
+        "pages/test/test",
+        "pages/murder/murder",
+        "pages/understand/understand",
+        "pages/note/note",
+        "pages/check/check",
+        "pages/review/review",
+        "pages/warn/warn",
+        "pages/write/write",
+        "pages/show/show",
+        "pages/add/add"
+    ],
+    "window": {
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#fff",
+        "navigationBarTitleText": "恋练复习",
+        "navigationBarTextStyle": "black",
+        "navigationStyle": "custom"
+    },
+    "sitemapLocation": "sitemap.json"
+}

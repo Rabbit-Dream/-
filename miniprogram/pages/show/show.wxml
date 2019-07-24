@@ -1,0 +1,22 @@
+<!--miniprogram/pages/show/show.wxml-->
+
+<view id='nav'>
+    <navigator class='nav' hover-class='none' url='/pages/review/review'>
+        <text class='text' bindtap='jump_index'>恋练复习</text>
+    </navigator>
+</view>
+
+<view class='content'>
+    <view class='top'>
+        <image style='width:32px; height:32px;' mode='aspectFit' src='../../images/heart.png' class='img'></image>
+        <text class='label'>日志</text>
+        <text class='date'>{{date}}</text>
+    </view>
+    
+    <view class='interpretation'>{{text}}</view>
+
+</view>
+
+<view class='delete' bindtap='remove'>
+    <image style='width:45px; height:45px' mode='aspectFit' src='../../images/delete.png'></image>
+</view>

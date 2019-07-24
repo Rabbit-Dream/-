@@ -1,0 +1,41 @@
+<!--pages/check/check.wxml-->
+<view id='nav'>
+    <navigator class='nav' hover-class='none' url='/pages/index/index'>
+        <text class='text'>恋练复习</text>
+    </navigator>
+</view>
+
+<view class='Units'>
+    <view id='placeholder'></view>
+    <view class='Unit' id='Unit01' bindtap='jump_word'>Unit1</view>
+    <view class='Unit' id='Unit02' bindtap='jump_word'>Unit2</view>
+    <view class='Unit' id='Unit03' bindtap='jump_word'>Unit3</view>
+    <view class='Unit' id='Unit04' bindtap='jump_word'>Unit4</view>
+    <view class='Unit' id='Unit05' bindtap='jump_word'>Unit5</view>
+    <view class='Unit' id='Unit06' bindtap='jump_word'>Unit6</view>
+    <view class='Unit' id='Unit07' bindtap='jump_word'>Unit7</view>
+    <view class='Unit' id='Unit08' bindtap='jump_word'>Unit8</view>
+    <view class='Unit' id='Unit09' bindtap='jump_word'>Unit9</view>
+    <view class='Unit' id='Unit10' bindtap='jump_word'>Unit10</view>
+    <view class='Unit' id='Unit11' bindtap='jump_word'>Unit11</view>
+    <view class='Unit' id='Unit12' bindtap='jump_word'>Unit12</view>
+    <view class='Unit' id='Unit13' bindtap='jump_word'>Unit13</view>
+    <view class='Unit' id='Unit14' bindtap='jump_word'>Unit14</view>
+    <view class='Unit' id='Unit15' bindtap='jump_word'>Unit15</view>
+    <view class='Unit' id='Unit16' bindtap='jump_word'>Unit16</view>
+    <view class='Unit' id='Unit17' bindtap='jump_word'>Unit17</view>
+    <view class='Unit' id='Unit18' bindtap='jump_word'>Unit18</view>
+    <view class='Unit' id='Unit19' bindtap='jump_word'>Unit19</view>
+    <view class='Unit' id='Unit20' bindtap='jump_word'>Unit20</view>
+    <view class='Unit' id='Unit21' bindtap='jump_word'>Unit21</view>
+    <view class='Unit' id='Unit22' bindtap='jump_word'>Unit22</view>
+    <view class='Unit' id='Unit23' bindtap='jump_word'>Unit23</view>
+    <view class='Unit' id='Unit24' bindtap='jump_word'>Unit24</view>
+    <view class='Unit' id='Unit25' bindtap='jump_word'>Unit25</view>
+    <view class='Unit' id='Unit26' bindtap='jump_word'>Unit26</view>
+    <view class='Unit' id='Unit27' bindtap='jump_word'>Unit27</view>
+    <view class='Unit' id='Unit28' bindtap='jump_word'>Unit28</view>
+    <view class='Unit' id='Unit29' bindtap='jump_word'>Unit29</view>
+    <view class='Unit' id='Unit30' bindtap='jump_word'>Unit30</view>
+</view>
+

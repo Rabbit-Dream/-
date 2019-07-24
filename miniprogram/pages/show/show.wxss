@@ -1,0 +1,44 @@
+/* miniprogram/pages/show/show.wxss */
+
+.top{
+    display: flex;
+    position: relative;
+    width: 80%;
+    height: 8%;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+}
+
+.interpretation{
+    margin: 0;
+    width: 80%;
+    height: 65%;
+    text-align: left;
+    background-color: bisque;
+}
+
+.img{
+    top: 5px;
+    left: 5px;
+}
+
+.label{
+    top: 10px;
+    left: 38px;
+}
+
+.date{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.delete{
+    position: fixed;
+    width: 45px;
+    height: 45px;
+    bottom: 20px;
+    right: 20px;
+}

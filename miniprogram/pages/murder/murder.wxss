@@ -1,0 +1,6 @@
+/* pages/murder/murder.wxss */
+
+.interpretation{
+    height: 35%;
+}
+

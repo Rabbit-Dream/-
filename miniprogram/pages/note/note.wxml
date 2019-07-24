@@ -1,0 +1,17 @@
+<!--pages/note/note.wxml-->
+<view id='nav'>
+    <navigator class='nav' hover-class='none' url='/pages/index/index'>
+        <text class='text'>恋练复习</text>
+    </navigator>
+</view>
+
+<view class='timecheck'>
+    <view id='placeholder'></view>
+    <view  class='time' wx:for="{{array}}" wx:for-item = "i" bindtap='diary' id='{{i}}'> {{date[i]}}
+        <image style='width:18px; height:18px;' mode='aspectFit' src='../../images/selected.png' class='select'></image>
+    </view>
+</view>
+
+<view class='circle' bindtap='add'>
+    <image style='width:64px; height:64px' mode='aspectFit' src='../../images/add.png'></image>
+</view>

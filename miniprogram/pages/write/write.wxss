@@ -1,0 +1,43 @@
+/* miniprogram/pages/write/write.wxss */
+
+.top{
+    display: flex;
+    position: relative;
+    width: 80%;
+    height: 8%;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+}
+
+.interpretation{
+    margin: 0;
+    width: 80%;
+    height: 65%;
+    background-color: bisque;
+}
+
+.img{
+    top: 5px;
+    left: 5px;
+}
+
+
+.label{
+    top: 8px;
+    left: 38px;
+}
+
+.diary{
+    display: flex;
+    background-color: bisque;
+    text-align: left;
+    width: 100%;
+    height: 100%;
+}
+
+.circle{
+    width: 50px;
+    height: 50px
+}

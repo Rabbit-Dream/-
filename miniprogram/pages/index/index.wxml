@@ -1,0 +1,11 @@
+<!--index.wxml-->
+<view id='nav'>
+    <navigator class='nav'>
+        <text class='text'>恋练复习</text>
+    </navigator>
+</view>
+<view class='check'>
+    <view type='default' bindtap='jump_review' class='button' id='review'>{{button1_name}}</view>
+    <view type='defualt' bindtap='jump_test' class='button'>{{button2_name}}</view>
+    <view type='defualt' bindtap='jump_note' class='button' id='Note'>{{button3_name}}</view>
+</view>
