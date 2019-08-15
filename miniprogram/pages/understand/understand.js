@@ -10,7 +10,6 @@ Page({
      */
     data: {
         content: null,
-        unitId: null,
         english: null,
         chinese: "",
         maxLength: 0,
@@ -27,15 +26,13 @@ Page({
                 button1_name: "继续",
                 chinese: that.data.content[i].chinese
             })
-            var app = getApp();
-            var unitId = app.globalData.unitId;
             const db = wx.cloud.database();
             wx.cloud.callFunction({
                 // 云函数名称
                 name: 'update',
                 // 传给云函数参数
                 data: {
-                    name: unitId,
+                    name: 'Note',
                     id: that.data.content[i]._id,
                     times: that.data.content[i].times + 2,
                 },
@@ -78,8 +75,6 @@ Page({
             })
         }
         else {
-            var app = getApp();
-            var unitId = app.globalData.unitId;
             const db = wx.cloud.database();
             if (that.data.content[i].times - 2 <= 0){
                 wx.cloud.callFunction({
@@ -87,7 +82,7 @@ Page({
                     name: 'remove',
                     // 传给云函数参数
                     data: {
-                        name: unitId,
+                        name: 'Note',
                         id: that.data.content[i]._id,
                     },
                     success: function (res) {
@@ -102,7 +97,7 @@ Page({
                     name: 'update',
                     // 传给云函数参数
                     data: {
-                        name: unitId,
+                        name: 'Note',
                         id: that.data.content[i]._id,
                         times: that.data.content[i].times - 2,
                     },
@@ -115,6 +110,7 @@ Page({
             if (++i < that.data.content.length){
                 that.setData({
                     english: that.data.content[i].english,
+                    chinese: "",
                     current: i + 1
                 })
             }
@@ -126,6 +122,17 @@ Page({
             }
         }
     },
+
+    look:function(){
+        var that = this;
+        var j = i;
+        if(i = 0){
+            j = i+1
+        }
+        that.setData({
+            chinese: that.data.content[j].chinese
+        })
+    },
     /**
      * 生命周期函数--监听页面加载
      */
@@ -133,28 +140,26 @@ Page({
         i = 0;
         var that = this;
         const db = wx.cloud.database();
-        var app = getApp();
-        console.log(app.globalData.unitId);
-        var unitId = that.data.unitId;
-        unitId = app.globalData.unitId;
-        that.setData({
-            unitId: unitId
-        })
-        db.collection(unitId).orderBy('times', 'desc').get({
+        // 调用云函数获取全部数据，突破20限制
+        wx.cloud.callFunction({
+            // 要调用函数名字
+            name: 'getAllData',
+            // 传参数给云函数
+            data: {
+                name: 'Note'
+            },
             success: res => {
-                console.log(res);
+                console.log("调用云函数成功")
                 that.setData({
-                    english: res.data[0].english,
-                    maxLength: res.data.length,
-                    content: res.data,
+                    english: res.result.data[0].english,
+                    maxLength: res.result.data.length,
+                    content: res.result.data,
                     current: i + 1
                 })
             },
-            fail: function (res) {
-                console.log("获取数据失败")
-            },
+            fail: console.error
         })
-
+        
     },
 
     /**

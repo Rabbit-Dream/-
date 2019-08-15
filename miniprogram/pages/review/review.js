@@ -1,8 +1,5 @@
 // pages/word/word.js
 
-var touchDot = 0;//触摸时的原点
-var time = 0;//  时间记录，用于滑动时且时间小于1s则执行左右滑动
-var interval = "";// 记录/清理 时间记录
 var i = 0;  //记录当前页面
 
 Page({
@@ -11,7 +8,6 @@ Page({
      */
     data: {
         content: null,
-        unitId: null,
         chinese: null,
         english: null,
         maxLength: 0,
@@ -24,33 +20,108 @@ Page({
         })
     },
 
+    // del:function(){
+    //     const db = wx.cloud.database();
+    //     var that = this;
+    //     wx.cloud.callFunction({
+    //         // 要调用函数名字
+    //         name: 'remove',
+    //         // 传参数给云函数
+    //         data: {
+    //             name: "Note",
+    //             id: that.data.content[i]._id
+    //         },
+    //         success: function (res) {
+    //             console.log("移除成功");
+    //         },
+    //         fail: console.error
+    //     })
+    // },
+
+    // modify:function(){
+    //     var that = this;
+    //     const db = wx.cloud.database();
+    //     wx.cloud.callFunction({
+    //         // 云函数名称
+    //         name: 'update',
+    //         // 传给云函数参数
+    //         data: {
+    //             name: unitId,
+    //             id: that.data.content[i]._id,
+    //             times: that.data.content[i].times + 2,
+    //         },
+    //         success: function (res) {
+    //             console.log("成功");
+    //         },
+    //         fail: console.error
+    //     })
+    // },
+
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
         i = 0;
         const db = wx.cloud.database();
-        var app = getApp();
-        console.log(app.globalData.unitId);
-        var unitId = this.data.unitId;
-        unitId = app.globalData.unitId;
-        this.setData({
-            unitId: unitId
-        })
-        db.collection(unitId).orderBy('times', 'desc').get({
+        var that = this;
+        // 调用云函数获取全部数据，突破20限制
+        wx.cloud.callFunction({
+            // 要调用函数名字
+            name: 'getAllData',
+            // 传参数给云函数
+            data: {
+                name: "Note"
+            },
             success: res => {
-                console.log(res);
-                this.setData({
-                    english: res.data[0].english,
-                    chinese: res.data[0].chinese,
-                    maxLength: res.data.length,
-                    content: res.data,
+                console.log("调用云函数成功")
+                console.log(res.result)
+                that.setData({
+                    english: res.result.data[0].english,
+                    chinese: res.result.data[0].chinese,
+                    maxLength: res.result.data.length,
+                    content: res.result.data,
                     current: i + 1
                 })
             },
-            fail: function (res) {
-                console.log("获取数据失败")
-            },
+            fail: console.error
+        })
+    },
+
+    Previous: function(){
+        var that = this;
+        if (--i >= 0) {
+            that.setData({
+                english: that.data.content[i].english,
+                chinese: that.data.content[i].chinese
+            })
+        }
+        else {
+            console.log(i);
+            console.log("数组越下界");
+            i++;
+        }
+        that.setData({
+            current: i + 1
+        })
+
+    },
+
+    Next: function(){
+        var that = this;
+        if (++i < that.data.content.length) { //每次移动中且滑动时不超过最大值 只执行一次
+
+            that.setData({
+                english: that.data.content[i].english,
+                chinese: that.data.content[i].chinese
+            })
+        }
+        else {
+            console.log(i);
+            console.log("数组越上界");
+            i--;
+        }
+        that.setData({
+            current: i + 1
         })
     },
 
@@ -66,60 +137,6 @@ Page({
      */
     onShow: function () {
 
-    },
-
-    // 滑动页面数据更新
-
-    // 触摸开始事件
-    touchStart: function (e) {
-        touchDot = e.touches[0].pageX; // 获取触摸时的原点
-        // 使用js计时器记录时间    
-        interval = setInterval(function () {
-            time++;
-        }, 100);
-    },
-    // 触摸结束事件
-    touchEnd: function (e) {
-        var touchMove = e.changedTouches[0].pageX;
-        console.log("touchMove:" + touchMove + " touchDot:" + touchDot + " diff:" + (touchMove - touchDot));
-        // 向左滑动   
-        console.log(this.data.content.length);
-        if (touchMove - touchDot <= -40 && time < 10) {
-            if (++i < this.data.content.length) { //每次移动中且滑动时不超过最大值 只执行一次
-
-                this.setData({
-                    english: this.data.content[i].english,
-                    chinese: this.data.content[i].chinese
-                })
-            }
-            else {
-                console.log(i);
-                console.log("数组越上界");
-                i--;
-            }
-            this.setData({
-                current: i + 1
-            })
-        }
-        // 向右滑动
-        if (touchMove - touchDot >= 40 && time < 10) {
-            if (--i >= 0) {
-                this.setData({
-                    english: this.data.content[i].english,
-                    chinese: this.data.content[i].chinese
-                })
-            }
-            else {
-                console.log(i);
-                console.log("数组越下界");
-                i++;
-            }
-            this.setData({
-                current: i + 1
-            })
-        }
-        clearInterval(interval); // 清除setInterval
-        time = 0;
     },
 
     /**

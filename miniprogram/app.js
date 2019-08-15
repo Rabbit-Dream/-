@@ -13,9 +13,6 @@ App({
   },
   globalData: {
     userInfo: null,
-    unitId: null,
-    checkMark: null,
-    noteClass: null,
     diary: null
   }
 })

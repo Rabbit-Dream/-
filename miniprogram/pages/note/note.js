@@ -36,14 +36,17 @@ Page({
         var app = getApp();
         var name = app.globalData.checkMark;
         const db = wx.cloud.database();
-        console.log(name);
-        console.log(app.globalData.checkMark);
-        db.collection(name).orderBy('date', 'desc').get({
+        // 调用云函数获取全部数据，突破20限制
+        wx.cloud.callFunction({
+            // 要调用函数名字
+            name: 'getAllData',
+            // 传参数给云函数
+            data: {
+                name: 'Diary'
+            },
             success: res => {
-                console.log(res);
-                console.log(res.data);
-
-                var note = res.data;
+                console.log("调用云函数成功")
+                var note = res.result.data;
                 var array = new Array(note.length);
                 var date = new Array(note.length);
                 for (var i = 0; i < note.length; i++) {
@@ -55,11 +58,9 @@ Page({
                     date: date,
                     note: note
                 })
-
+                
             },
-            fail: function (res) {
-                console.log("获取数据失败")
-            },
+            fail: console.error
         })
     },
 

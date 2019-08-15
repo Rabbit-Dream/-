@@ -17,5 +17,11 @@
     <view class='button' bindtap='remind'>{{button1_name}}</view>
     <view class='button' bindtap='next'>{{button2_name}}</view>
 </view>
-<view class='mark'>{{unitId}}:</view>
+
+<view class='mark'>Note:</view>
+
 <view class='ratio'>{{current}}/{{maxLength}}</view>
+
+<view class='circle' bindtap='look'>
+    <image style='width:50px; height:50px' mode='aspectFit' src='../../images/look.png'></image>
+</view>

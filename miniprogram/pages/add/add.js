@@ -27,15 +27,13 @@ Page({
     },
 
     save: function() {
-        var app = getApp();
         var that = this;
-        var unitId = app.globalData.unitId;
         const db = wx.cloud.database();
-        db.collection(unitId).add({
+        db.collection("Note").add({
             // 添加数据（文本和日期）
             data: {
-                chinese: this.data.chinese,
-                english: this.data.english,
+                chinese: that.data.chinese,
+                english: that.data.english,
                 times: 10
             },
             success: function (res) {
@@ -69,11 +67,7 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-        var app = getApp();
-        var unitId = app.globalData.unitId;
-        this.setData({
-            unitId: unitId
-        })
+        
     },
 
     /**

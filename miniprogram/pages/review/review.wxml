@@ -6,7 +6,7 @@
     </navigator>
 </view>
 
-<view class='content'  bindtouchstart="touchStart"  bindtouchend="touchEnd">
+<view class='content'>
 
     <view class='word'>{{english}}</view>
 
@@ -16,12 +16,16 @@
         <text class='chinese'>{{chinese}}</text>
     </view>
 
+    <view class='control' bindtap='Previous'>Previous</view>
+    <view class='control' bindtap='Next'>Next</view>
+
 </view>
 
-<view class='mark'>{{unitId}}:</view>
+<view class='mark'>Note:</view>
 
 <view class='ratio'>{{current}}/{{maxLength}}</view>
 
 <view class='circle' bindtap='add'>
-    <image style='width:60px; height:60px' mode='aspectFit' src='../../images/add.png'></image>
+    <image style='width:50px; height:50px' mode='aspectFit' src='../../images/add.png'></image>
 </view>
+

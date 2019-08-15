@@ -11,10 +11,8 @@ Page({
     },
 
     jump_review: function(e){
-        var app = getApp();
-        app.globalData.checkMark = e.currentTarget.id;
         wx.navigateTo({
-            url: '/pages/check/check'
+            url: '/pages/review/review'
         })
     },
 
@@ -25,8 +23,6 @@ Page({
     },
 
     jump_note: function(e) {
-        var app = getApp();
-        app.globalData.checkMark = e.currentTarget.id;
         wx.navigateTo({
             url: '/pages/note/note'
         })
@@ -34,10 +30,6 @@ Page({
 
     onLoad: function(){
         // 返回首页时，全局变量恢复默认值
-        var app = getApp();
-        app.globalData.checkMark = null;
-        app.globalData.unitId = null;
-        app.globalData.noteClass = null;
     },
 
     /**

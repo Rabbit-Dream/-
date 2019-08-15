@@ -13,7 +13,7 @@ Page({
         var app = getApp();
         app.globalData.checkMark = e.currentTarget.id;
         wx.navigateTo({
-            url: '/pages/check/check'
+            url: '/pages/understand/understand'
         })
     },
 
@@ -21,7 +21,7 @@ Page({
         var app = getApp();
         app.globalData.checkMark = e.currentTarget.id;
         wx.navigateTo({
-            url: '/pages/check/check'
+            url: '/pages/murder/murder'
         })
     },
 

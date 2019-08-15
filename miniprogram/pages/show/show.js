@@ -12,7 +12,6 @@ Page({
     remove: function(){
         var app = getApp();
         var diary = app.globalData.diary;
-        console.log(diary._id);
         var dbname = app.globalData.checkMark;
         wx.showModal({
             title: '提示',
